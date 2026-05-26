@@ -1,1 +1,3 @@
-
+git rm tilemap
+git commit -m "Delete tilemap file"
+git push origin main
