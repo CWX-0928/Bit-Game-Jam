@@ -1,17 +1,52 @@
-[gd_scene load_steps=2 format=3 uid="uid://dwruh0m8pcyjt"]
+[gd_scene load_steps=7 format=3 uid="uid://dwruh0m8pcyjt"]
+
+[ext_resource type="Script" path="res://world.gd" id="1_ec61e"]
+[ext_resource type="Script" path="res://player.gd" id="1_wwvca"]
+[ext_resource type="Script" path="res://health.gd" id="3_3vvtk"]
+[ext_resource type="Script" path="res://ui.gd" id="4_4yy07"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w2j11"]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_46wio"]
+size = Vector2(247, 20)
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="World" type="Node2D"]
+script = ExtResource("1_ec61e")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(581, 284)
+script = ExtResource("1_wwvca")
+
+[node name="Health" type="Label" parent="Player"]
+offset_left = -21.0
+offset_top = -35.0
+offset_right = 19.0
+offset_bottom = -12.0
+text = "1"
+horizontal_alignment = 1
+script = ExtResource("3_3vvtk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource("RectangleShape2D_w2j11")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
 
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
+[node name="Testingwall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Testingwall"]
+position = Vector2(132, 409)
+shape = SubResource("RectangleShape2D_46wio")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -30.0
+offset_right = 30.0
 offset_bottom = 23.0
-text = "Testing hi"
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 30
+text = "SCORE: "
+script = ExtResource("4_4yy07")
