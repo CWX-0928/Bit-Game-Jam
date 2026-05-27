@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
-@onready var player : CharacterBody2D
+
+@onready var player: CharacterBody2D = $"../Player"
 @onready var animations: AnimationPlayer = $animations
 
 var direction : String = "left"
@@ -9,12 +10,12 @@ var direction : String = "left"
 @export var damage = 10
 @export var health = 100
 
-signal player_hurt
+#signal player_hurt
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	calculate_direction()
 	move_towards_player()
-	play_animation()
+	#play_animation()
 	move_and_slide()
 
 # Enemy movement func
@@ -38,23 +39,23 @@ func calculate_direction():
 			direction = "up"
 
 # Controls animations
-func play_animation():
-	match direction:
-		"left":
-			animations.play()
-		"right":
-			animations.play()
-		"up":
-			animations.play()
-		"down":
-			animations.play()
+#func play_animation():
+	#match direction:
+		#"left":
+			#animations.play()
+		#"right":
+			#animations.play()
+		#"up":
+			#animations.play()
+		#"down":
+			#animations.play()
 
 # Basic Damage player func
 func _on_damage_area_body_entered(body: Node2D) -> void:
 	if body != player : 
 		return
-
-	player_hurt.emit(damage)
+	else:
+		body.take_damage(damage)
 
 # Basic Hurt func
 func on_hit(health_damaged):
