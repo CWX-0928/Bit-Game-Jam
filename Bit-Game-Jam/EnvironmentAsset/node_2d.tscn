@@ -1,0 +1,177 @@
+[gd_scene load_steps=8 format=4 uid="uid://b2yy48pkwrnm1"]
+
+[ext_resource type="TileSet" uid="uid://dxjpg3k3ex1c2" path="res://GrassTileset.tres" id="1_osb7u"]
+[ext_resource type="Script" path="res://EnvironmentAsset/character_body_2d.gd" id="2_5ux1y"]
+[ext_resource type="Texture2D" uid="uid://cbws8tbasvh8r" path="res://EnvironmentAsset/Flower2.png" id="3_5it14"]
+[ext_resource type="Texture2D" uid="uid://bcucy4id4jlqm" path="res://EnvironmentAsset/flower.png" id="4_5uicu"]
+[ext_resource type="Texture2D" uid="uid://pj3tau5sugke" path="res://EnvironmentAsset/Grass2.png" id="5_rcemx"]
+[ext_resource type="Texture2D" uid="uid://b7xf5bhoabgdv" path="res://EnvironmentAsset/grass.png" id="6_syvrl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_67arf"]
+radius = 107.517
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAATAAAAAAADAAAAAAAAAAoAAAAAAAMAAAATAAoAAAADAAMAAAABAAoAAAABAAMAAAACAAoAAAABAAMAAAADAAoAAAACAAMAAAAEAAoAAAACAAMAAAAFAAoAAAACAAMAAAAGAAoAAAACAAMAAAAHAAoAAAACAAMAAAAIAAoAAAACAAMAAAAJAAoAAAABAAMAAAAKAAoAAAABAAMAAAALAAoAAAACAAMAAAASAAoAAAACAAMAAAARAAoAAAACAAMAAAAQAAoAAAACAAMAAAAPAAoAAAACAAMAAAAOAAoAAAABAAMAAAANAAoAAAABAAMAAAAMAAoAAAACAAMAAAATAAkAAAADAAIAAAATAAgAAAADAAIAAAATAAcAAAADAAIAAAATAAYAAAADAAIAAAATAAEAAAADAAEAAAATAAIAAAADAAEAAAATAAMAAAADAAEAAAATAAQAAAADAAEAAAATAAUAAAADAAEAAAAAAAEAAAAAAAEAAAAAAAIAAAAAAAEAAAAAAAMAAAAAAAEAAAAAAAQAAAAAAAEAAAAAAAUAAAAAAAEAAAAAAAkAAAAAAAIAAAAAAAgAAAAAAAIAAAAAAAcAAAAAAAIAAAAAAAYAAAAAAAIAAAABAAAAAAABAAAAAAACAAAAAAABAAAAAAADAAAAAAABAAAAAAAEAAAAAAABAAAAAAAFAAAAAAABAAAAAAAGAAAAAAABAAAAAAAHAAAAAAABAAAAAAAKAAAAAAACAAAAAAALAAAAAAACAAAAAAAMAAAAAAACAAAAAAANAAAAAAACAAAAAAAOAAAAAAACAAAAAAAPAAAAAAACAAAAAAAQAAAAAAACAAAAAAARAAAAAAACAAAAAAASAAAAAAABAAAAAAAIAAAAAAABAAAAAAAJAAAAAAABAAAAAAAIAAcAAAABAAEAAAAIAAYAAAABAAEAAAAIAAUAAAABAAEAAAAIAAQAAAABAAEAAAAIAAMAAAABAAEAAAAIAAIAAAABAAEAAAAIAAEAAAABAAEAAAAHAAEAAAABAAEAAAAGAAEAAAABAAEAAAAFAAEAAAABAAEAAAAEAAEAAAABAAEAAAADAAEAAAABAAEAAAACAAEAAAABAAEAAAABAAEAAAABAAEAAAABAAIAAAABAAEAAAABAAMAAAABAAEAAAABAAQAAAABAAEAAAABAAUAAAABAAEAAAABAAYAAAABAAEAAAABAAcAAAABAAEAAAABAAgAAAABAAEAAAABAAkAAAABAAEAAAACAAkAAAABAAEAAAACAAgAAAABAAEAAAACAAcAAAABAAEAAAACAAYAAAABAAEAAAACAAUAAAABAAEAAAACAAQAAAABAAEAAAACAAMAAAABAAEAAAACAAIAAAABAAEAAAADAAIAAAABAAEAAAADAAMAAAABAAEAAAADAAQAAAABAAEAAAADAAUAAAABAAEAAAADAAYAAAABAAEAAAADAAcAAAABAAEAAAADAAgAAAABAAEAAAADAAkAAAABAAEAAAAEAAkAAAABAAEAAAAEAAgAAAABAAEAAAAEAAcAAAABAAEAAAAEAAYAAAABAAEAAAAEAAUAAAABAAEAAAAEAAQAAAABAAEAAAAEAAMAAAABAAEAAAAEAAIAAAABAAEAAAAFAAIAAAABAAEAAAAFAAMAAAABAAEAAAAFAAQAAAABAAEAAAAFAAUAAAABAAEAAAAFAAYAAAABAAEAAAAFAAcAAAABAAEAAAAFAAgAAAABAAEAAAAFAAkAAAABAAEAAAAGAAkAAAABAAEAAAAGAAgAAAABAAEAAAAGAAcAAAABAAEAAAAGAAYAAAABAAEAAAAGAAUAAAABAAEAAAAGAAQAAAABAAEAAAAGAAMAAAABAAEAAAAGAAIAAAABAAEAAAAHAAIAAAABAAEAAAAHAAMAAAABAAEAAAAHAAQAAAABAAEAAAAHAAUAAAABAAEAAAAHAAYAAAABAAEAAAAHAAcAAAABAAEAAAAHAAgAAAABAAEAAAAHAAkAAAABAAEAAAAIAAkAAAABAAEAAAAIAAgAAAABAAEAAAAJAAgAAAABAAEAAAAJAAcAAAABAAEAAAAJAAYAAAABAAEAAAAJAAUAAAABAAEAAAAJAAQAAAABAAEAAAAJAAMAAAABAAEAAAAJAAIAAAABAAEAAAAJAAEAAAABAAEAAAAKAAEAAAABAAEAAAAKAAIAAAABAAEAAAAKAAMAAAABAAEAAAAKAAQAAAABAAEAAAAKAAUAAAABAAEAAAAKAAYAAAABAAEAAAAKAAcAAAABAAEAAAAKAAgAAAABAAEAAAAKAAkAAAABAAEAAAAJAAkAAAABAAEAAAALAAkAAAABAAEAAAALAAgAAAABAAEAAAALAAcAAAABAAEAAAALAAYAAAABAAEAAAALAAUAAAABAAEAAAALAAQAAAABAAEAAAALAAMAAAABAAEAAAALAAIAAAABAAEAAAALAAEAAAABAAEAAAAMAAEAAAABAAEAAAAMAAIAAAABAAEAAAAMAAMAAAABAAEAAAAMAAQAAAABAAEAAAAMAAUAAAABAAEAAAAMAAYAAAABAAEAAAAMAAcAAAABAAEAAAAMAAgAAAABAAEAAAAMAAkAAAABAAEAAAANAAkAAAABAAEAAAANAAgAAAABAAEAAAANAAcAAAABAAEAAAANAAYAAAABAAEAAAANAAUAAAABAAEAAAANAAQAAAABAAEAAAANAAMAAAABAAEAAAANAAIAAAABAAEAAAANAAEAAAABAAEAAAAOAAEAAAABAAEAAAAOAAIAAAABAAEAAAAOAAMAAAABAAEAAAAOAAQAAAABAAEAAAAOAAUAAAABAAEAAAAOAAYAAAABAAEAAAAOAAcAAAABAAEAAAAOAAgAAAABAAEAAAAOAAkAAAABAAEAAAAPAAkAAAABAAEAAAAPAAgAAAABAAEAAAAPAAcAAAABAAEAAAAPAAYAAAABAAEAAAAPAAUAAAABAAEAAAAPAAQAAAABAAEAAAAPAAMAAAABAAEAAAAPAAIAAAABAAEAAAAPAAEAAAABAAEAAAAQAAEAAAABAAEAAAAQAAIAAAABAAEAAAAQAAMAAAABAAEAAAAQAAQAAAABAAEAAAAQAAUAAAABAAEAAAAQAAYAAAABAAEAAAAQAAcAAAABAAEAAAAQAAgAAAABAAEAAAAQAAkAAAABAAEAAAARAAkAAAABAAEAAAARAAgAAAABAAEAAAARAAcAAAABAAEAAAARAAYAAAABAAEAAAARAAUAAAABAAEAAAARAAQAAAABAAEAAAARAAMAAAABAAEAAAARAAIAAAABAAEAAAARAAEAAAABAAEAAAASAAEAAAABAAEAAAASAAIAAAABAAEAAAASAAMAAAABAAEAAAASAAQAAAABAAEAAAASAAUAAAABAAEAAAASAAYAAAABAAEAAAASAAcAAAABAAEAAAASAAgAAAABAAEAAAASAAkAAAABAAEAAAA=")
+tile_set = ExtResource("1_osb7u")
+
+[node name="Flower2" type="Sprite2D" parent="."]
+position = Vector2(224, 843)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_5it14")
+
+[node name="Flower3" type="Sprite2D" parent="."]
+position = Vector2(582, 743)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_5it14")
+
+[node name="Flower4" type="Sprite2D" parent="."]
+position = Vector2(343, 193)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_5it14")
+
+[node name="Flower5" type="Sprite2D" parent="."]
+position = Vector2(960, 371)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_5it14")
+
+[node name="Flower6" type="Sprite2D" parent="."]
+position = Vector2(1227, 882)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_5it14")
+
+[node name="Flower7" type="Sprite2D" parent="."]
+position = Vector2(972, 791)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_5it14")
+
+[node name="Flower8" type="Sprite2D" parent="."]
+position = Vector2(1444, 262)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_5it14")
+
+[node name="Flower9" type="Sprite2D" parent="."]
+position = Vector2(1663, 686)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_5it14")
+
+[node name="Flower" type="Sprite2D" parent="."]
+position = Vector2(193, 375)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_5uicu")
+
+[node name="Flower10" type="Sprite2D" parent="."]
+position = Vector2(347, 667)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_5uicu")
+
+[node name="Flower11" type="Sprite2D" parent="."]
+position = Vector2(696, 435)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_5uicu")
+
+[node name="Flower12" type="Sprite2D" parent="."]
+position = Vector2(994, 583)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_5uicu")
+
+[node name="Flower13" type="Sprite2D" parent="."]
+position = Vector2(1349, 462)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_5uicu")
+
+[node name="Flower14" type="Sprite2D" parent="."]
+position = Vector2(1454, 766)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_5uicu")
+
+[node name="Grass2" type="Sprite2D" parent="."]
+position = Vector2(413, 889)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_rcemx")
+
+[node name="Grass3" type="Sprite2D" parent="."]
+position = Vector2(707, 882)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_rcemx")
+
+[node name="Grass4" type="Sprite2D" parent="."]
+position = Vector2(507, 504)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_rcemx")
+
+[node name="Grass5" type="Sprite2D" parent="."]
+position = Vector2(660, 267)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_rcemx")
+
+[node name="Grass6" type="Sprite2D" parent="."]
+position = Vector2(995, 222)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_rcemx")
+
+[node name="Grass7" type="Sprite2D" parent="."]
+position = Vector2(1159, 366)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_rcemx")
+
+[node name="Grass8" type="Sprite2D" parent="."]
+position = Vector2(1237, 591)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_rcemx")
+
+[node name="Grass9" type="Sprite2D" parent="."]
+position = Vector2(1223, 773)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_rcemx")
+
+[node name="Grass10" type="Sprite2D" parent="."]
+position = Vector2(1442, 916)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_rcemx")
+
+[node name="Grass11" type="Sprite2D" parent="."]
+position = Vector2(1620, 528)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_rcemx")
+
+[node name="Grass12" type="Sprite2D" parent="."]
+position = Vector2(1649, 202)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_rcemx")
+
+[node name="Grass" type="Sprite2D" parent="."]
+position = Vector2(776, 663)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_syvrl")
+
+[node name="Grass13" type="Sprite2D" parent="."]
+position = Vector2(1690, 880)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_syvrl")
+
+[node name="Grass14" type="Sprite2D" parent="."]
+position = Vector2(1672, 370)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_syvrl")
+
+[node name="Grass15" type="Sprite2D" parent="."]
+position = Vector2(811, 183)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_syvrl")
+
+[node name="Grass16" type="Sprite2D" parent="."]
+position = Vector2(164, 634)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_syvrl")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(303, 372)
+scale = Vector2(0.4, 0.4)
+script = ExtResource("2_5ux1y")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CircleShape2D_67arf")
