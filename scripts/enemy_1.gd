@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-@onready var player: CharacterBody2D = $"../Player"
+@onready var player: CharacterBody2D = $"../../Player"
 @onready var animations: AnimationPlayer = $animations
 
 var direction : String = "left"
