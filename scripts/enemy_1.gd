@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+
 var player
 @onready var animations: AnimationPlayer = $animations
 var direction : String = "left"
@@ -56,10 +57,11 @@ func calculate_direction():
 
 # Basic Damage player func
 func _on_damage_area_body_entered(body: Node2D) -> void:
-	if body != player : 
-		return
-	else:
+
+	if body.is_in_group("player"): 
 		body.take_damage(damage)
+	#take_damage() function will changed based on the real function name in player script
+
 
 # Basic Hurt func
 func on_hit(health_damaged):

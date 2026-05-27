@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxrqfslngd5vi"]
+
+[ext_resource type="Script" path="res://scripts/enemy_2_magic.gd" id="1_h7flc"]
+[ext_resource type="Texture2D" uid="uid://ccg3pdg7bxg33" path="res://assets/temoprary_magic_effect.png" id="2_gicg0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_isqpt"]
+radius = 3.38462
+
+[node name="enemy_2_magic" type="Area2D"]
+script = ExtResource("1_h7flc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_gicg0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 0)
+rotation = -3.14159
+scale = Vector2(7.09091, 3.96)
+shape = SubResource("CircleShape2D_isqpt")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
