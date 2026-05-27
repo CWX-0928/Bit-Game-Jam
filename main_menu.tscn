@@ -1,6 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://bb1wbtvj52na1"]
+[gd_scene load_steps=25 format=3 uid="uid://bb1wbtvj52na1"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_qf80h"]
+[ext_resource type="Texture2D" uid="uid://ck6g6oc1ov3wl" path="res://background-asset.png" id="2_dqhlu"]
 [ext_resource type="Script" path="res://title.gd" id="3_b2s4a"]
 
 [sub_resource type="SystemFont" id="SystemFont_a0778"]
@@ -8,6 +9,9 @@ font_names = PackedStringArray("Algerian")
 
 [sub_resource type="Theme" id="Theme_eog85"]
 default_font = SubResource("SystemFont_a0778")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_if1be"]
+texture = ExtResource("2_dqhlu")
 
 [sub_resource type="SystemFont" id="SystemFont_p035w"]
 font_names = PackedStringArray("Algerian")
@@ -97,6 +101,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_if1be")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -116,10 +121,10 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = SubResource("SystemFont_p035w")
 theme_override_font_sizes/font_size = 48
 theme_override_styles/focus = SubResource("StyleBoxEmpty_k0wch")
@@ -133,10 +138,10 @@ text = "Play"
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = SubResource("SystemFont_p035w")
 theme_override_font_sizes/font_size = 48
 theme_override_styles/focus = SubResource("StyleBoxEmpty_fnqga")
@@ -150,10 +155,10 @@ text = "Setting"
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = SubResource("SystemFont_p035w")
 theme_override_font_sizes/font_size = 48
 theme_override_styles/focus = SubResource("StyleBoxEmpty_klhkq")
@@ -173,6 +178,8 @@ offset_top = 64.0
 offset_right = 562.0
 offset_bottom = 207.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
 theme_override_font_sizes/font_size = 104
 text = "Magic gone wrong"
 horizontal_alignment = 1

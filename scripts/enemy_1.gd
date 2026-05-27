@@ -7,11 +7,12 @@ var direction : String = "left"
 
 @export var speed = 155
 @export var damage = 10
-@export var health = 100
+@export var health = 3
 
 #signal player_hurt
 
 func _ready() -> void:
+	add_to_group("enemy")
 	await get_tree().process_frame
 	player = get_tree().get_first_node_in_group("player")
 
@@ -66,3 +67,7 @@ func _on_damage_area_body_entered(body: Node2D) -> void:
 # Basic Hurt func
 func on_hit(health_damaged):
 	health -= health_damaged
+	print("Enemy ded")
+	if health<=0:
+		GameState.add_score(1)
+		queue_free()

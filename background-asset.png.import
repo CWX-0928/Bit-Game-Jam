@@ -2,20 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<< HEAD
-uid="uid://3ba3batmxs0"
-=======
-uid="uid://cbadvinuecmsu"
->>>>>>> 503a3b59e807ec47197333774066ed7c92c903a6
-path="res://.godot/imported/Grass2.png-3e361ddae95b076f4b9a41bb7702a873.ctex"
+uid="uid://ck6g6oc1ov3wl"
+path="res://.godot/imported/background-asset.png-25073f3bae8683da19229f7a134a3611.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Grass2.png"
-dest_files=["res://.godot/imported/Grass2.png-3e361ddae95b076f4b9a41bb7702a873.ctex"]
+source_file="res://background-asset.png"
+dest_files=["res://.godot/imported/background-asset.png-25073f3bae8683da19229f7a134a3611.ctex"]
 
 [params]
 

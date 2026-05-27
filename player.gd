@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var speed  = 150
-var SCORE = 0
+
 var max_LIFE = 100
 var LIFE = 100
 var damage = 1
@@ -20,19 +20,9 @@ func handleInput():
 
 func _input(_event):
 	if Input.is_action_just_pressed("click"):
-		attack()
+		get_node("Magicspawn").shoot()
 
-func attack():
-	if not can_attack:
-		return
-	can_attack = false
-	attacking = true
-	print("ATTACKKK")
-	#sfx
-	#if velocity.x<0:
-		#animations.play("AttackLeft")
-	#else:
-		#animations.play("AttackRight")
+
 
 func _process(_delta: float) -> void:
 	handleInput()
