@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://8h31lvpqrk6l"]
+
+[ext_resource type="Script" path="res://scripts/enemy_2.gd" id="1_coojc"]
+[ext_resource type="Texture2D" uid="uid://cea5crv8jmrn0" path="res://icon.svg" id="2_1r8lm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7mwe0"]
+size = Vector2(112, 112)
+
+[node name="enemy_2" type="CharacterBody2D" groups=["enemy"]]
+script = ExtResource("1_coojc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.695078, 0.0843782, 0.207665, 1)
+texture = ExtResource("2_1r8lm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7mwe0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="shoot_timer" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
+[connection signal="timeout" from="shoot_timer" to="." method="_on_shoot_timer_timeout"]
