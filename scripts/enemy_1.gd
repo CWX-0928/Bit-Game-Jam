@@ -41,9 +41,9 @@ func calculate_direction():
 func play_animation():
 	match direction:
 		"left":
-			animations.play()
+			animations.play("move_left")
 		"right":
-			animations.play()
+			animations.play("move_right")
 		"up":
 			animations.play()
 		"down":
