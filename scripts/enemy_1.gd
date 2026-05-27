@@ -1,16 +1,18 @@
 extends CharacterBody2D
 
-
-@onready var player: CharacterBody2D = $"../../Player"
+var player
 @onready var animations: AnimationPlayer = $animations
-
 var direction : String = "left"
 
-@export var speed = 200
+@export var speed = 155
 @export var damage = 10
 @export var health = 100
 
 #signal player_hurt
+
+func _ready() -> void:
+	await get_tree().process_frame
+	player = get_tree().get_first_node_in_group("player")
 
 func _process(_delta: float) -> void:
 	calculate_direction()
@@ -20,8 +22,10 @@ func _process(_delta: float) -> void:
 
 # Enemy movement func
 func move_towards_player():
+	if not player:
+		return
 	var dist = player.global_position - self.global_position
-	velocity = (dist*speed).normalized()
+	velocity = dist.normalized() * speed
 
 # Calculate direction where enemy is facing
 func calculate_direction():

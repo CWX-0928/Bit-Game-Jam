@@ -1,11 +1,24 @@
-extends Node
+extends Node2D
 
-
+var enemy_load = preload("res://scenes/enemy_1.tscn")
+var max_enemies = 5
 
 func _ready() -> void:
-	pass # Replace with function body.
+	spawn_loop()
 
+func spawn_loop():
+	while true:
+		await get_tree().create_timer(5).timeout
+		spawn_enemy()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+func spawn_enemy():
+	var enemies = get_tree().get_nodes_in_group("enemies")
+	if enemies.size() >= max_enemies:
+		return
+	var enemy = enemy_load.instantiate()
+	get_parent().add_child(enemy)
+	enemy.global_position = Vector2(randf_range(100,900), randf_range(200,400))
+	enemy.scale = Vector2(0.5,0.5)
+
 func _process(_delta: float) -> void:
 	pass
