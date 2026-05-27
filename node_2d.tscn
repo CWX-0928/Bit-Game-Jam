@@ -1,17 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://dwruh0m8pcyjt"]
+[gd_scene load_steps=3 format=3 uid="uid://dwruh0m8pcyjt"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_wwvca"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w2j11"]
 
-[node name="Node2D" type="Node2D"]
+[node name="World" type="Node2D"]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(581, 284)
+script = ExtResource("1_wwvca")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource("RectangleShape2D_w2j11")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Testing hi"
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
