@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed  = 150
+@export var speed  = 200
 
 var max_LIFE = 100
 var LIFE = 100
@@ -19,8 +19,13 @@ func handleInput():
 	velocity = inputmoving * speed
 
 func _input(_event):
-	if Input.is_action_just_pressed("click"):
+	if Input.is_action_just_pressed("click") and can_attack:
 		get_node("Magicspawn").shoot()
+		can_attack = false
+		await get_tree().create_timer(1).timeout
+		can_attack = true
+	else:
+		return
 
 
 

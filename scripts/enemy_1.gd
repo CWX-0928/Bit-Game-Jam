@@ -4,8 +4,7 @@ extends CharacterBody2D
 var player
 #@onready var animations: AnimationPlayer = $animations
 var direction : String = "left"
-
-@export var speed = 155
+@export var speed = 150
 @export var damage = 10
 @export var health = 3
 
@@ -69,5 +68,5 @@ func on_hit(health_damaged):
 	health -= health_damaged
 	print("Enemy ded")
 	if health<=0:
-		GameState.add_score(1)
+		GameState.add_score(5)
 		queue_free()

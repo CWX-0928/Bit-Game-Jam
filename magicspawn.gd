@@ -3,6 +3,7 @@ extends Sprite2D
 @onready var marker_2d: Marker2D = $Marker2D
 var direction = Vector2.ZERO
 
+
 const MAGIC_1 = preload("res://scenes/magic_1.tscn")
 
 func _ready() -> void:
