@@ -31,12 +31,6 @@ func calculate_direction():
 			direction = "right"
 		else:
 			direction = "left"
-	else:
-		if dir.y > 0:
-			direction = "down"
-		else:
-			direction = "up"
-
 # Controls animations
 func play_animation():
 	match direction:
@@ -44,17 +38,17 @@ func play_animation():
 			animations.play("move_left")
 		"right":
 			animations.play("move_right")
-		"up":
-			animations.play()
-		"down":
-			animations.play()
 
 # Basic Damage player func
 func _on_damage_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"): 
 		body.take_damage(damage)
+		animations.play("attack_" + direction)
 	#take_damage() function will changed based on the real function name in player script
 
 # Basic Hurt func
 func on_hit(health_damaged):
 	health -= health_damaged
+	self_modulate = Color.RED
+	await get_tree().create_timer(0.2).timeout
+	self_modulate = Color.WHITE
