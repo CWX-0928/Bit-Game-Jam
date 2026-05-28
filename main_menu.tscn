@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bb1wbtvj52na1"]
+[gd_scene load_steps=27 format=3 uid="uid://bb1wbtvj52na1"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_qf80h"]
 [ext_resource type="Texture2D" uid="uid://btp2cgk2y2bn6" path="res://asset/background-asset.png" id="2_ssk2d"]
@@ -20,7 +20,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Animated Sprite/Wizard:frame_coords")
+tracks/0/path = NodePath("Background/Animated Sprite/Wizard:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -32,7 +32,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Animated Sprite/Mob:frame_coords")
+tracks/1/path = NodePath("Background/Animated Sprite/Mob:frame_coords")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -44,7 +44,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Animated Sprite/Fireball:frame_coords")
+tracks/2/path = NodePath("Background/Animated Sprite/Fireball:frame_coords")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -64,7 +64,7 @@ step = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Animated Sprite/Wizard:frame_coords")
+tracks/0/path = NodePath("Background/Animated Sprite/Wizard:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -76,7 +76,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Animated Sprite/Mob:frame_coords")
+tracks/1/path = NodePath("Background/Animated Sprite/Mob:frame_coords")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -88,7 +88,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Animated Sprite/Fireball:frame_coords")
+tracks/2/path = NodePath("Background/Animated Sprite/Fireball:frame_coords")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -124,14 +124,6 @@ keycode = 4194309
 [sub_resource type="Shortcut" id="Shortcut_13upn"]
 events = [SubResource("InputEventKey_lmpn2")]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fnqga"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vb16h"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_km210"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gihmw"]
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_klhkq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gq28y"]
@@ -139,21 +131,6 @@ events = [SubResource("InputEventKey_lmpn2")]
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pxjlj"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8vkgn"]
-
-[sub_resource type="Animation" id="Animation_a13ei"]
-resource_name = "Theme_reveal"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Title:visible_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
 
 [sub_resource type="Animation" id="Animation_bbbh2"]
 length = 0.001
@@ -168,6 +145,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_a13ei"]
+resource_name = "Theme_reveal"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_koj1p"]
@@ -187,6 +179,7 @@ theme = SubResource("Theme_eog85")
 script = ExtResource("1_qf80h")
 
 [node name="Background" type="Panel" parent="."]
+clip_contents = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -195,27 +188,27 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_if1be")
 
-[node name="Animated Sprite" type="Node2D" parent="."]
+[node name="Animated Sprite" type="Node2D" parent="Background"]
 
-[node name="Wizard" type="Sprite2D" parent="Animated Sprite"]
+[node name="Wizard" type="Sprite2D" parent="Background/Animated Sprite"]
 position = Vector2(296, 392)
 texture = ExtResource("4_jnkk5")
 vframes = 5
 
-[node name="Mob" type="Sprite2D" parent="Animated Sprite"]
+[node name="Mob" type="Sprite2D" parent="Background/Animated Sprite"]
 position = Vector2(904, 448)
 texture = ExtResource("5_8mefu")
 vframes = 5
 frame = 1
 
-[node name="Fireball" type="Sprite2D" parent="Animated Sprite"]
+[node name="Fireball" type="Sprite2D" parent="Background/Animated Sprite"]
 position = Vector2(616, 200)
 texture = ExtResource("5_iujrd")
 vframes = 5
 frame = 1
 
-[node name="Sprite_animation" type="AnimationPlayer" parent="Animated Sprite"]
-root_node = NodePath("../..")
+[node name="Sprite_animation" type="AnimationPlayer" parent="Background/Animated Sprite"]
+root_node = NodePath("../../..")
 libraries = {
 "": SubResource("AnimationLibrary_aiqlm")
 }
@@ -228,9 +221,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -125.0
-offset_top = -63.5
+offset_top = 10.5
 offset_right = 125.0
-offset_bottom = 163.5
+offset_bottom = 237.5
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -251,7 +244,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_vuc3o")
 shortcut = SubResource("Shortcut_13upn")
 text = "Play"
 
-[node name="Setting" type="Button" parent="VBoxContainer"]
+[node name="Credit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
@@ -261,12 +254,12 @@ theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = SubResource("SystemFont_p035w")
 theme_override_font_sizes/font_size = 48
-theme_override_styles/focus = SubResource("StyleBoxEmpty_fnqga")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_vb16h")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_km210")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_gihmw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_k0wch")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_qyc4k")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_an03r")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vuc3o")
 shortcut = SubResource("Shortcut_13upn")
-text = "Setting"
+text = "Credit"
 
 [node name="Exit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -308,5 +301,5 @@ libraries = {
 }
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="VBoxContainer/Setting" to="." method="_on_setting_pressed"]
+[connection signal="pressed" from="VBoxContainer/Credit" to="." method="_on_credit_pressed"]
 [connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
