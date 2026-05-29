@@ -4,6 +4,8 @@ extends CharacterBody2D
 
 @onready var player : CharacterBody2D =  get_tree().get_first_node_in_group("player")
 @onready var animations: AnimationPlayer = $animations
+@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var shoot_place: Node2D = $shoot_place
 
 var direction : String = "left"
 
@@ -46,20 +48,20 @@ func calculate_direction():
 
 # Controls animations
 func play_animation():
+	animations.play('walking')
 	match direction:
 		"left":
-			animations.play()
+			sprite_2d.flip_h = true
+			shoot_place.position = Vector2(-8,-9)
 		"right":
-			animations.play()
-		"up":
-			animations.play()
-		"down":
-			animations.play()
+			sprite_2d.flip_h = false
+			shoot_place.position = Vector2(8,-9)
+
 
 # Shoot Damage player func
 func shoot():
 	var projectile = projectile_scene.instantiate()
-	projectile.global_position = self.global_position
+	projectile.global_position = shoot_place.global_position
 	projectile.direction = (player.global_position - projectile.global_position).normalized()
 	projectile.damage = damage
 	get_tree().current_scene.add_child(projectile)

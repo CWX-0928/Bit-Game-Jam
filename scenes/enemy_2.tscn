@@ -1,25 +1,110 @@
-[gd_scene load_steps=4 format=3 uid="uid://8h31lvpqrk6l"]
+[gd_scene load_steps=9 format=3 uid="uid://8h31lvpqrk6l"]
 
 [ext_resource type="Script" path="res://scripts/enemy_2.gd" id="1_coojc"]
-[ext_resource type="Texture2D" uid="uid://cea5crv8jmrn0" path="res://icon.svg" id="2_1r8lm"]
+[ext_resource type="Texture2D" uid="uid://cf2o7a07uu7nv" path="res://assets/mage.png" id="2_d0c5j"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7mwe0"]
-size = Vector2(112, 112)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rnwmg"]
+height = 37.1379
+
+[sub_resource type="Animation" id="Animation_cwid8"]
+resource_name = "walking"
+length = 0.8
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(3, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_22g18"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5mbel"]
+resource_name = "die"
+length = 0.8
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 3), Vector2i(1, 3), Vector2i(2, 3), Vector2i(3, 3)]
+}
+
+[sub_resource type="Animation" id="Animation_djbpv"]
+resource_name = "channel"
+length = 0.8
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 2), Vector2i(1, 2), Vector2i(2, 2), Vector2i(3, 2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1uc8e"]
+_data = {
+"RESET": SubResource("Animation_22g18"),
+"channel": SubResource("Animation_djbpv"),
+"die": SubResource("Animation_5mbel"),
+"walking": SubResource("Animation_cwid8")
+}
 
 [node name="enemy_2" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_coojc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.695078, 0.0843782, 0.207665, 1)
-texture = ExtResource("2_1r8lm")
+texture = ExtResource("2_d0c5j")
+hframes = 4
+vframes = 5
+frame = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_7mwe0")
+position = Vector2(0, 1.5)
+scale = Vector2(0.59671, 0.735556)
+shape = SubResource("CapsuleShape2D_rnwmg")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1uc8e")
+}
 
 [node name="shoot_timer" type="Timer" parent="."]
 wait_time = 4.0
 autostart = true
+
+[node name="shoot_place" type="Node2D" parent="."]
+position = Vector2(8, -9)
 
 [connection signal="timeout" from="shoot_timer" to="." method="_on_shoot_timer_timeout"]

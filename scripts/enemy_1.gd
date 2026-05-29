@@ -49,6 +49,9 @@ func _on_damage_area_body_entered(body: Node2D) -> void:
 # Basic Hurt func
 func on_hit(health_damaged):
 	health -= health_damaged
-	self_modulate = Color.RED
-	await get_tree().create_timer(0.2).timeout
-	self_modulate = Color.WHITE
+	if health <= 0:
+		animations.play("die" + direction)
+	else :
+		self_modulate = Color.RED
+		await get_tree().create_timer(0.2).timeout
+		self_modulate = Color.WHITE
