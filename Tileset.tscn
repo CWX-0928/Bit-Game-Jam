@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=4 uid="uid://dwruh0m8pcyjt"]
 
 [ext_resource type="TileSet" uid="uid://b2a0kq381qink" path="res://GrassTileset.tres" id="1_xb1ei"]
-[ext_resource type="Texture2D" uid="uid://fjomt6nua1q0" path="res://flower.png" id="2_wmf78"]
-[ext_resource type="Texture2D" uid="uid://brhnoymwfwpnl" path="res://Flower2.png" id="3_th18f"]
-[ext_resource type="Texture2D" uid="uid://cbadvinuecmsu" path="res://Grass2.png" id="4_jl1fl"]
-[ext_resource type="Texture2D" uid="uid://8xih00hpyv03" path="res://grass.png" id="5_51crr"]
+[ext_resource type="Texture2D" uid="uid://btehe50trqnh" path="res://flower.png" id="2_wmf78"]
+[ext_resource type="Texture2D" uid="uid://ca31fkurheqqy" path="res://Flower2.png" id="3_th18f"]
+[ext_resource type="Texture2D" uid="uid://bql6wpvu123i2" path="res://Grass2.png" id="4_jl1fl"]
+[ext_resource type="Texture2D" uid="uid://bdtpt246ij7y2" path="res://grass.png" id="5_51crr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w2j11"]
 

@@ -1,12 +1,14 @@
-[gd_scene load_steps=15 format=3 uid="uid://dwruh0m8pcyjt"]
+[gd_scene load_steps=17 format=3 uid="uid://dwruh0m8pcyjt"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_ec61e"]
 [ext_resource type="Script" path="res://player.gd" id="1_wwvca"]
+[ext_resource type="PackedScene" uid="uid://dwruh0m8pcyjt" path="res://Tileset.tscn" id="2_yynf1"]
 [ext_resource type="Script" path="res://health.gd" id="3_3vvtk"]
 [ext_resource type="Script" path="res://enemy_spawner.gd" id="3_gh0k8"]
 [ext_resource type="Script" path="res://ui.gd" id="4_4yy07"]
 [ext_resource type="Script" path="res://magicspawn.gd" id="5_6utcg"]
 [ext_resource type="Script" path="res://score.gd" id="7_5gfvt"]
+[ext_resource type="PackedScene" uid="uid://m2ytwdgpvx6c" path="res://upgrade_option.tscn" id="8_3bo6s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w2j11"]
 
@@ -57,6 +59,10 @@ corner_radius_bottom_left = 2
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_ec61e")
+
+[node name="Node2D" parent="." instance=ExtResource("2_yynf1")]
+z_index = -10
+position = Vector2(0, 6)
 
 [node name="EnemySpawner1" type="Node2D" parent="."]
 position = Vector2(73, 37)
@@ -171,5 +177,91 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_igffu")
 theme_override_styles/normal = SubResource("StyleBoxFlat_7ieio")
 text = "QUIT"
 
+[node name="Upgrade Option" parent="CanvasLayer" instance=ExtResource("8_3bo6s")]
+
+[node name="GAME PAUSED" type="ColorRect" parent="CanvasLayer"]
+process_mode = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_jfiu0")
+color = Color(0, 0, 0, 0.235294)
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/GAME PAUSED"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -111.0
+offset_top = -74.0
+offset_right = 111.0
+offset_bottom = 74.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/GAME PAUSED/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/GAME PAUSED/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/GAME PAUSED/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "GAME PAUSED"
+horizontal_alignment = 1
+
+[node name="Score" type="Label" parent="CanvasLayer/GAME PAUSED/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Score: "
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("7_5gfvt")
+
+[node name="Continue" type="Button" parent="CanvasLayer/GAME PAUSED/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxFlat_oldub")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jil0g")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_igffu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_7ieio")
+text = "Continue"
+
+[node name="Restart" type="Button" parent="CanvasLayer/GAME PAUSED/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxFlat_oldub")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jil0g")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_igffu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_7ieio")
+text = "RESTART"
+
+[node name="Quit" type="Button" parent="CanvasLayer/GAME PAUSED/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxFlat_oldub")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jil0g")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_igffu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_7ieio")
+text = "QUIT"
+
 [connection signal="pressed" from="CanvasLayer/GAME OVER/PanelContainer/MarginContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="CanvasLayer/GAME OVER/PanelContainer/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="CanvasLayer/GAME PAUSED/PanelContainer/MarginContainer/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="CanvasLayer/GAME PAUSED/PanelContainer/MarginContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="CanvasLayer/GAME PAUSED/PanelContainer/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
