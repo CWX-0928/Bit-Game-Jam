@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dwruh0m8pcyjt"]
+[gd_scene load_steps=18 format=3 uid="uid://dwruh0m8pcyjt"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_ec61e"]
 [ext_resource type="Script" path="res://player.gd" id="1_wwvca"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://magicspawn.gd" id="5_6utcg"]
 [ext_resource type="Texture2D" uid="uid://d4lg7ng8hc5hg" path="res://wizards_player.png" id="6_nhxk8"]
 [ext_resource type="Script" path="res://score.gd" id="7_5gfvt"]
+[ext_resource type="AudioStream" uid="uid://cj4l3m3dnbede" path="res://inLevelBGM.wav" id="10_wbg77"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w2j11"]
 
@@ -60,7 +61,7 @@ corner_radius_bottom_left = 2
 [node name="World" type="Node2D"]
 script = ExtResource("1_ec61e")
 
-[node name="Node2D" parent="." instance=ExtResource("2_yb7nw")]
+[node name="Tilemap" parent="." instance=ExtResource("2_yb7nw")]
 
 [node name="EnemySpawner1" type="Node2D" parent="."]
 position = Vector2(73, 37)
@@ -176,6 +177,11 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_jil0g")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_igffu")
 theme_override_styles/normal = SubResource("StyleBoxFlat_7ieio")
 text = "QUIT"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_wbg77")
+volume_db = 15.0
+autoplay = true
 
 [connection signal="pressed" from="CanvasLayer/GAME OVER/PanelContainer/MarginContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="CanvasLayer/GAME OVER/PanelContainer/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
