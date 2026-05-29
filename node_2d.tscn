@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dwruh0m8pcyjt"]
+[gd_scene load_steps=15 format=3 uid="uid://dwruh0m8pcyjt"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_ec61e"]
 [ext_resource type="Script" path="res://player.gd" id="1_wwvca"]
@@ -9,6 +9,51 @@
 [ext_resource type="Script" path="res://score.gd" id="7_5gfvt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w2j11"]
+
+[sub_resource type="SystemFont" id="SystemFont_n3sp3"]
+font_names = PackedStringArray("Algerian")
+
+[sub_resource type="Theme" id="Theme_jfiu0"]
+default_font = SubResource("SystemFont_n3sp3")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oldub"]
+bg_color = Color(0.6, 0.6, 0.286275, 1)
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jil0g"]
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_igffu"]
+bg_color = Color(0.6, 0.6, 0.286275, 1)
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ieio"]
+bg_color = Color(0.6, 0.6, 0.286275, 1)
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_ec61e")
@@ -63,6 +108,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_jfiu0")
 color = Color(0, 0, 0, 0.235294)
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/GAME OVER"]
@@ -105,12 +151,24 @@ script = ExtResource("7_5gfvt")
 
 [node name="Restart" type="Button" parent="CanvasLayer/GAME OVER/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
 theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxFlat_oldub")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jil0g")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_igffu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_7ieio")
 text = "RESTART"
 
 [node name="Quit" type="Button" parent="CanvasLayer/GAME OVER/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
 theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxFlat_oldub")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jil0g")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_igffu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_7ieio")
 text = "QUIT"
 
 [connection signal="pressed" from="CanvasLayer/GAME OVER/PanelContainer/MarginContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
