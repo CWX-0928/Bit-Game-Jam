@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://8h31lvpqrk6l"]
+[gd_scene load_steps=6 format=3 uid="uid://8h31lvpqrk6l"]
 
 [ext_resource type="Script" path="res://scripts/enemy_2.gd" id="1_coojc"]
 [ext_resource type="Texture2D" uid="uid://c7nskpiriopim" path="res://icon.svg" id="2_1r8lm"]
@@ -81,6 +81,9 @@ _data = {
 "walking": SubResource("Animation_3ijao")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lqqd2"]
+size = Vector2(144, 144)
+
 [node name="enemy_2" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_coojc")
 projectile_scene = ExtResource("2_n7n73")
@@ -110,3 +113,4 @@ autostart = true
 position = Vector2(8, -9)
 
 [connection signal="timeout" from="shoot_timer" to="." method="_on_shoot_timer_timeout"]
+[connection signal="body_entered" from="damage_area" to="." method="_on_damage_area_body_entered"]
