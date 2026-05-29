@@ -1,0 +1,247 @@
+[gd_scene load_steps=9 format=3 uid="uid://m2ytwdgpvx6c"]
+
+[ext_resource type="Texture2D" uid="uid://ccg3pdg7bxg33" path="res://assets/temoprary_magic_effect.png" id="1_yi0wp"]
+
+[sub_resource type="SystemFont" id="SystemFont_wp704"]
+font_names = PackedStringArray("Algerian")
+
+[sub_resource type="Theme" id="Theme_1xbqi"]
+default_font = SubResource("SystemFont_wp704")
+
+[sub_resource type="SystemFont" id="SystemFont_togky"]
+font_names = PackedStringArray("Algerian")
+
+[sub_resource type="Theme" id="Theme_hi1qo"]
+default_font = SubResource("SystemFont_togky")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3f6ef"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mbtgw"]
+bg_color = Color(0.709804, 0.709804, 0.709804, 0.392157)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_itiq4"]
+bg_color = Color(0.707967, 0.707967, 0.707966, 0.392157)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="Upgrade Option" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -278.0
+offset_top = 50.0
+offset_right = 278.0
+offset_bottom = 149.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme = SubResource("Theme_1xbqi")
+theme_override_font_sizes/font_size = 72
+text = "Upgrade Option"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Shady background" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.683077, 0.683078, 0.683077, 0.392157)
+
+[node name="Option 1" type="Control" parent="CanvasLayer"]
+layout_direction = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -201.0
+offset_right = -201.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_hi1qo")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Option 1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Option 1/HBoxContainer"]
+custom_minimum_size = Vector2(150, 200)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_3f6ef")
+
+[node name="Button1" type="Button" parent="CanvasLayer/Option 1/HBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_styles/focus = SubResource("StyleBoxFlat_mbtgw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_itiq4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mbtgw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_mbtgw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Option 1/HBoxContainer/Panel/Button1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Option 1/HBoxContainer/Panel/Button1/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Fireball" type="Label" parent="CanvasLayer/Option 1/HBoxContainer/Panel/Button1/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Fire \"Ball\""
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Option 1/HBoxContainer/Panel/Button1/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 5
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Option 1/HBoxContainer/Panel/Button1/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_yi0wp")
+
+[node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer/Option 1/HBoxContainer/Panel/Button1/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Stat_change" type="Label" parent="CanvasLayer/Option 1/HBoxContainer/Panel/Button1/VBoxContainer/MarginContainer3"]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+size_flags_vertical = 8
+text = "firerate increases by 20%"
+autowrap_mode = 2
+
+[node name="Option 2" type="Control" parent="CanvasLayer/Option 1"]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 401.0
+offset_right = 401.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_hi1qo")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Option 1/Option 2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Option 1/Option 2/HBoxContainer"]
+custom_minimum_size = Vector2(150, 200)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_3f6ef")
+
+[node name="Button2" type="Button" parent="CanvasLayer/Option 1/Option 2/HBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_styles/focus = SubResource("StyleBoxFlat_mbtgw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_itiq4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mbtgw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_mbtgw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Option 1/Option 2/HBoxContainer/Panel/Button2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Option 1/Option 2/HBoxContainer/Panel/Button2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Fireball" type="Label" parent="CanvasLayer/Option 1/Option 2/HBoxContainer/Panel/Button2/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Fire \"Ball\""
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Option 1/Option 2/HBoxContainer/Panel/Button2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 5
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Option 1/Option 2/HBoxContainer/Panel/Button2/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_yi0wp")
+
+[node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer/Option 1/Option 2/HBoxContainer/Panel/Button2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Stat_change" type="Label" parent="CanvasLayer/Option 1/Option 2/HBoxContainer/Panel/Button2/VBoxContainer/MarginContainer3"]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+size_flags_vertical = 8
+text = "damage increases by 20%"
+autowrap_mode = 2
