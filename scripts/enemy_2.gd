@@ -66,7 +66,6 @@ func shoot():
 	get_tree().current_scene.add_child(projectile)
 
 func _on_damage_area_body_entered(body: Node2D) -> void:
-
 	if body.is_in_group("player"): 
 		body.take_damage(damage)
 

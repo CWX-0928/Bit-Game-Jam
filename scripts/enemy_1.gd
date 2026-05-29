@@ -2,7 +2,8 @@ extends CharacterBody2D
 
 
 var player
-#@onready var animations: AnimationPlayer = $animations
+@onready var animations: AnimationPlayer = $animations
+
 var direction : String = "left"
 @export var speed = 150
 @export var damage = 10

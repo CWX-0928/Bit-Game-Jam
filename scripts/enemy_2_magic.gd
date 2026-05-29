@@ -6,16 +6,12 @@ var direction = Vector2.ZERO
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-var diretion = Vector2.ZERO
-@export var speed = 40
-@export var damage = 10
-
 func _ready() -> void:
 	animation_player.play("magic")
-	rotation = diretion.angle()
+	rotation = direction.angle()
 
 func _process(delta: float) -> void:
-	global_position += diretion*speed*delta 
+	global_position += direction*speed*delta 
 
 func _on_timer_timeout() -> void:
 	queue_free()
