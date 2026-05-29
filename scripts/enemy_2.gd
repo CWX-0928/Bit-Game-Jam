@@ -40,11 +40,6 @@ func calculate_direction():
 			direction = "right"
 		else:
 			direction = "left"
-	else:
-		if dir.y > 0:
-			direction = "down"
-		else:
-			direction = "up"
 
 # Controls animations
 func play_animation():
