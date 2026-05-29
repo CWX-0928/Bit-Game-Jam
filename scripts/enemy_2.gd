@@ -69,7 +69,10 @@ func shoot():
 # Basic Hurt func
 func on_hit(health_damaged):
 	health -= health_damaged
+	if health <= 0 :
+		animations.play("die")
 
 # Repeat shooting process
 func _on_shoot_timer_timeout() -> void:
 	shoot()
+	animations.play("channel")
