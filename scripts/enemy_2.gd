@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var projectile_scene : PackedScene
 
 @onready var player : CharacterBody2D =  get_tree().get_first_node_in_group("player")
-@onready var animations: AnimationPlayer = $animations
+@onready var animations: AnimationPlayer = $AnimationPlayer
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var shoot_place: Node2D = $shoot_place
 
@@ -73,6 +73,8 @@ func on_hit(health_damaged):
 	health -= health_damaged
 	if health <= 0 :
 		animations.play("die")
+		GameState.SCORE += 10
+		queue_free()
 
 # Repeat shooting process
 func _on_shoot_timer_timeout() -> void:
