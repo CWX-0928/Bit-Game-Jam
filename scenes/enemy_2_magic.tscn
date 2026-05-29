@@ -1,27 +1,74 @@
-[gd_scene load_steps=4 format=3 uid="uid://dxrqfslngd5vi"]
+[gd_scene load_steps=7 format=3 uid="uid://dxrqfslngd5vi"]
 
 [ext_resource type="Script" path="res://scripts/enemy_2_magic.gd" id="1_h7flc"]
-[ext_resource type="Texture2D" uid="uid://ccg3pdg7bxg33" path="res://assets/temoprary_magic_effect.png" id="2_gicg0"]
+[ext_resource type="Texture2D" uid="uid://cf2o7a07uu7nv" path="res://assets/mage.png" id="2_ok52i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_isqpt"]
-radius = 3.38462
+radius = 1.50044
+
+[sub_resource type="Animation" id="Animation_5qatt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 4)]
+}
+
+[sub_resource type="Animation" id="Animation_wq0d3"]
+resource_name = "magic"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 4), Vector2i(1, 4), Vector2i(2, 4), Vector2i(3, 4)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mdxua"]
+_data = {
+"RESET": SubResource("Animation_5qatt"),
+"magic": SubResource("Animation_wq0d3")
+}
 
 [node name="enemy_2_magic" type="Area2D"]
 script = ExtResource("1_h7flc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_gicg0")
+texture = ExtResource("2_ok52i")
+hframes = 4
+vframes = 5
+frame = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(8, 0)
+position = Vector2(0, -1.81899e-12)
 rotation = -3.14159
-scale = Vector2(7.09091, 3.96)
+scale = Vector2(-6.45052, 3.001)
 shape = SubResource("CircleShape2D_isqpt")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
 autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mdxua")
+}
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
