@@ -7,7 +7,7 @@ var player
 var direction : String = "left"
 
 @export var speed = 150
-@export var damage = 10
+@export var damage = 5
 @export var health = 10
 @export var safe_distance: float = 20.0
 
@@ -64,7 +64,7 @@ func shoot():
 	projectile.global_position = self.global_position
 	projectile.direction = (player.global_position - projectile.global_position).normalized()
 	projectile.speed = speed *1.5
-	projectile.damage = damage
+
 	get_tree().current_scene.add_child(projectile)
 
 func _on_damage_area_body_entered(body: Node2D) -> void:
