@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var animation_player: AnimationPlayer = $cd/AnimationPlayer
+
 @export var speed  = 200
 
 var max_LIFE = 100
@@ -23,12 +25,12 @@ func _input(_event):
 	if Input.is_action_just_pressed("click") and can_attack:
 		get_node("Magicspawn").shoot()
 		can_attack = false
+    animation_player.play("cd_animation")
 		await get_tree().create_timer(attack_time).timeout
 		can_attack = true
 	else:
+		can_attack = false
 		return
-
-
 
 func _process(_delta: float) -> void:
 	handleInput()
