@@ -4,7 +4,7 @@ extends Node2D
 #@onready var game_won: AudioStreamPlayer = $GameWin -audio
 
 func _ready() -> void:
-	#$"CanvasLayer/GAME OVER".hide() - UI
+	$"CanvasLayer/GAME OVER".hide()
 	#$CanvasLayer/WINN.hide() - UI
 	#$CanvasLayer/PAUSE.hide() - UI
 	var player = get_tree().get_first_node_in_group("player")
@@ -29,7 +29,7 @@ func _ready() -> void:
 func on_game_over():
 	get_tree().paused = true
 	#game_over.play() - audio
-	#$"CanvasLayer/GAME OVER".show()
+	$"CanvasLayer/GAME OVER".show()
 	
 func _on_restart_pressed():
 	get_tree().paused = false
@@ -54,6 +54,7 @@ func _process(_delta: float) -> void:
 
 func _on_quit_pressed() -> void:
 	get_tree().paused = false
+	get_tree().change_scene_to_file("res://main_menu.tscn")
 	
 
 

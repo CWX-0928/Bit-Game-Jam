@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bu6cif1xu1k30"
-path="res://.godot/imported/Grass2.png-3e361ddae95b076f4b9a41bb7702a873.ctex"
+uid="uid://bhpk32u6k4ly"
+path="res://.godot/imported/Fireball_cd.png-76385064d7e11bbbdbc09a98f8836b75.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Grass2.png"
-dest_files=["res://.godot/imported/Grass2.png-3e361ddae95b076f4b9a41bb7702a873.ctex"]
+source_file="res://asset/Fireball_cd.png"
+dest_files=["res://.godot/imported/Fireball_cd.png-76385064d7e11bbbdbc09a98f8836b75.ctex"]
 
 [params]
 

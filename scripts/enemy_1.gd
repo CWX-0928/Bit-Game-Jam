@@ -1,26 +1,32 @@
 extends CharacterBody2D
 
-@onready var player : CharacterBody2D = get_tree().get_first_node_in_group("player")
-@onready var animations: AnimationPlayer = $animations
 
+var player
+#@onready var animations: AnimationPlayer = $animations
 var direction : String = "left"
-
-@export var speed = 200
+@export var speed = 150
 @export var damage = 10
-@export var health = 100
+@export var health = 3
 
-signal player_hurt
+#signal player_hurt
 
-func _process(delta: float) -> void:
+func _ready() -> void:
+	add_to_group("enemy")
+	await get_tree().process_frame
+	player = get_tree().get_first_node_in_group("player")
+
+func _process(_delta: float) -> void:
 	calculate_direction()
 	move_towards_player()
-	play_animation()
+	#play_animation()
 	move_and_slide()
 
 # Enemy movement func
 func move_towards_player():
+	if not player:
+		return
 	var dist = player.global_position - self.global_position
-	velocity = (dist*speed).normalized()
+	velocity = dist.normalized() * speed
 
 # Calculate direction where enemy is facing
 func calculate_direction():
@@ -41,10 +47,12 @@ func play_animation():
 
 # Basic Damage player func
 func _on_damage_area_body_entered(body: Node2D) -> void:
+
 	if body.is_in_group("player"): 
 		body.take_damage(damage)
 		animations.play("attack_" + direction)
 	#take_damage() function will changed based on the real function name in player script
+
 
 # Basic Hurt func
 func on_hit(health_damaged):
