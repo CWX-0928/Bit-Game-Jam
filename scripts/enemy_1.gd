@@ -59,7 +59,9 @@ func _on_damage_area_body_entered(body: Node2D) -> void:
 func on_hit(health_damaged):
 	health -= health_damaged
 	if health <= 0:
-		animations.play("die" + direction)
+		animations.play("die_" + direction)
+		GameState.SCORE += 5
+		queue_free()
 	else :
 		self_modulate = Color.RED
 		await get_tree().create_timer(0.2).timeout

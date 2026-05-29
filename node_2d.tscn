@@ -1,10 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://dwruh0m8pcyjt"]
+[gd_scene load_steps=18 format=3 uid="uid://dwruh0m8pcyjt"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_ec61e"]
 [ext_resource type="Script" path="res://player.gd" id="1_wwvca"]
-
 [ext_resource type="PackedScene" uid="uid://dwruh0m8pcyjt" path="res://Tileset.tscn" id="2_yynf1"]
-
 [ext_resource type="Script" path="res://health.gd" id="3_3vvtk"]
 [ext_resource type="Script" path="res://enemy_spawner.gd" id="3_gh0k8"]
 [ext_resource type="Script" path="res://ui.gd" id="4_4yy07"]
@@ -67,7 +65,6 @@ script = ExtResource("1_ec61e")
 z_index = -10
 position = Vector2(0, 6)
 
-
 [node name="EnemySpawner1" type="Node2D" parent="."]
 position = Vector2(73, 37)
 script = ExtResource("3_gh0k8")
@@ -78,9 +75,9 @@ script = ExtResource("1_wwvca")
 
 [node name="Health" type="Label" parent="Player"]
 offset_left = -21.0
-offset_top = -35.0
+offset_top = -50.0
 offset_right = 19.0
-offset_bottom = -12.0
+offset_bottom = -27.0
 text = "1"
 horizontal_alignment = 1
 script = ExtResource("3_3vvtk")
@@ -184,6 +181,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_7ieio")
 text = "QUIT"
 
 [node name="Upgrade Option" parent="CanvasLayer" instance=ExtResource("8_3bo6s")]
+visible = true
 
 [node name="GAME PAUSED" type="ColorRect" parent="CanvasLayer"]
 process_mode = 2
