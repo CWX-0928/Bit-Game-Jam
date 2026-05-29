@@ -1,8 +1,10 @@
-[gd_scene load_steps=25 format=3 uid="uid://bb1wbtvj52na1"]
+[gd_scene load_steps=27 format=3 uid="uid://bb1wbtvj52na1"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_qf80h"]
-[ext_resource type="Texture2D" uid="uid://ck6g6oc1ov3wl" path="res://background-asset.png" id="2_dqhlu"]
-[ext_resource type="Script" path="res://title.gd" id="3_b2s4a"]
+[ext_resource type="Texture2D" uid="uid://btp2cgk2y2bn6" path="res://asset/background-asset.png" id="2_ssk2d"]
+[ext_resource type="Texture2D" uid="uid://d2jgshwaq8jwf" path="res://asset/Wizard-Sheet.png" id="4_jnkk5"]
+[ext_resource type="Texture2D" uid="uid://cyactxkvi7jy3" path="res://asset/Mobs.png" id="5_8mefu"]
+[ext_resource type="Texture2D" uid="uid://cbfxp34i4e7ss" path="res://asset/Fireball.png" id="5_iujrd"]
 
 [sub_resource type="SystemFont" id="SystemFont_a0778"]
 font_names = PackedStringArray("Algerian")
@@ -11,7 +13,97 @@ font_names = PackedStringArray("Algerian")
 default_font = SubResource("SystemFont_a0778")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_if1be"]
-texture = ExtResource("2_dqhlu")
+texture = ExtResource("2_ssk2d")
+
+[sub_resource type="Animation" id="Animation_kvt07"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background/Animated Sprite/Wizard:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background/Animated Sprite/Mob:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Background/Animated Sprite/Fireball:frame_coords")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_haral"]
+resource_name = "Theme_reveal"
+
+[sub_resource type="Animation" id="Animation_w6i8w"]
+resource_name = "walk_down"
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background/Animated Sprite/Wizard:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(0, 1), Vector2i(0, 2), Vector2i(0, 3), Vector2i(0, 4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background/Animated Sprite/Mob:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(0, 1), Vector2i(0, 2), Vector2i(0, 3), Vector2i(0, 4)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Background/Animated Sprite/Fireball:frame_coords")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(0, 1), Vector2i(0, 2), Vector2i(0, 3), Vector2i(0, 4)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aiqlm"]
+_data = {
+"RESET": SubResource("Animation_kvt07"),
+"Theme_reveal": SubResource("Animation_haral"),
+"walk_down": SubResource("Animation_w6i8w")
+}
 
 [sub_resource type="SystemFont" id="SystemFont_p035w"]
 font_names = PackedStringArray("Algerian")
@@ -32,14 +124,6 @@ keycode = 4194309
 [sub_resource type="Shortcut" id="Shortcut_13upn"]
 events = [SubResource("InputEventKey_lmpn2")]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fnqga"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vb16h"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_km210"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gihmw"]
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_klhkq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gq28y"]
@@ -48,7 +132,7 @@ events = [SubResource("InputEventKey_lmpn2")]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8vkgn"]
 
-[sub_resource type="Animation" id="Animation_kvt07"]
+[sub_resource type="Animation" id="Animation_bbbh2"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -60,10 +144,10 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [1.0]
 }
 
-[sub_resource type="Animation" id="Animation_haral"]
+[sub_resource type="Animation" id="Animation_a13ei"]
 resource_name = "Theme_reveal"
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -78,10 +162,10 @@ tracks/0/keys = {
 "values": [0.0, 1.0]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_aiqlm"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_koj1p"]
 _data = {
-"RESET": SubResource("Animation_kvt07"),
-"Theme_reveal": SubResource("Animation_haral")
+"RESET": SubResource("Animation_bbbh2"),
+"Theme_reveal": SubResource("Animation_a13ei")
 }
 
 [node name="Main_menu" type="Control"]
@@ -95,6 +179,7 @@ theme = SubResource("Theme_eog85")
 script = ExtResource("1_qf80h")
 
 [node name="Background" type="Panel" parent="."]
+clip_contents = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -102,6 +187,31 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_if1be")
+
+[node name="Animated Sprite" type="Node2D" parent="Background"]
+
+[node name="Wizard" type="Sprite2D" parent="Background/Animated Sprite"]
+position = Vector2(296, 392)
+texture = ExtResource("4_jnkk5")
+vframes = 5
+
+[node name="Mob" type="Sprite2D" parent="Background/Animated Sprite"]
+position = Vector2(904, 448)
+texture = ExtResource("5_8mefu")
+vframes = 5
+frame = 1
+
+[node name="Fireball" type="Sprite2D" parent="Background/Animated Sprite"]
+position = Vector2(616, 200)
+texture = ExtResource("5_iujrd")
+vframes = 5
+frame = 1
+
+[node name="Sprite_animation" type="AnimationPlayer" parent="Background/Animated Sprite"]
+root_node = NodePath("../../..")
+libraries = {
+"": SubResource("AnimationLibrary_aiqlm")
+}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -111,9 +221,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -125.0
-offset_top = -63.5
+offset_top = 10.5
 offset_right = 125.0
-offset_bottom = 163.5
+offset_bottom = 237.5
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -134,7 +244,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_vuc3o")
 shortcut = SubResource("Shortcut_13upn")
 text = "Play"
 
-[node name="Setting" type="Button" parent="VBoxContainer"]
+[node name="Credit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
@@ -144,12 +254,12 @@ theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = SubResource("SystemFont_p035w")
 theme_override_font_sizes/font_size = 48
-theme_override_styles/focus = SubResource("StyleBoxEmpty_fnqga")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_vb16h")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_km210")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_gihmw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_k0wch")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_qyc4k")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_an03r")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vuc3o")
 shortcut = SubResource("Shortcut_13upn")
-text = "Setting"
+text = "Credit"
 
 [node name="Exit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -179,20 +289,17 @@ offset_right = 562.0
 offset_bottom = 207.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 2
+theme_override_constants/outline_size = 3
 theme_override_font_sizes/font_size = 104
 text = "Magic gone wrong"
 horizontal_alignment = 1
 vertical_alignment = 1
-visible_characters = 0
-visible_ratio = 0.0
-script = ExtResource("3_b2s4a")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="Theme_animation" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_aiqlm")
+"": SubResource("AnimationLibrary_koj1p")
 }
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="VBoxContainer/Setting" to="." method="_on_setting_pressed"]
+[connection signal="pressed" from="VBoxContainer/Credit" to="." method="_on_credit_pressed"]
 [connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
