@@ -1,11 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://dwruh0m8pcyjt"]
+[gd_scene load_steps=17 format=3 uid="uid://dwruh0m8pcyjt"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_ec61e"]
 [ext_resource type="Script" path="res://player.gd" id="1_wwvca"]
+[ext_resource type="PackedScene" uid="uid://dwruh0m8pcyjt" path="res://Tileset.tscn" id="2_yb7nw"]
 [ext_resource type="Script" path="res://health.gd" id="3_3vvtk"]
 [ext_resource type="Script" path="res://enemy_spawner.gd" id="3_gh0k8"]
 [ext_resource type="Script" path="res://ui.gd" id="4_4yy07"]
 [ext_resource type="Script" path="res://magicspawn.gd" id="5_6utcg"]
+[ext_resource type="Texture2D" uid="uid://d4lg7ng8hc5hg" path="res://wizards_player.png" id="6_nhxk8"]
 [ext_resource type="Script" path="res://score.gd" id="7_5gfvt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w2j11"]
@@ -58,6 +60,8 @@ corner_radius_bottom_left = 2
 [node name="World" type="Node2D"]
 script = ExtResource("1_ec61e")
 
+[node name="Node2D" parent="." instance=ExtResource("2_yb7nw")]
+
 [node name="EnemySpawner1" type="Node2D" parent="."]
 position = Vector2(73, 37)
 script = ExtResource("3_gh0k8")
@@ -79,6 +83,8 @@ script = ExtResource("3_3vvtk")
 shape = SubResource("RectangleShape2D_w2j11")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_nhxk8")
 
 [node name="Magicspawn" type="Sprite2D" parent="Player"]
 script = ExtResource("5_6utcg")
