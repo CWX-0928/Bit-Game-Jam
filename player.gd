@@ -9,6 +9,7 @@ var LIFE = 100
 var damage = 1
 var can_attack = true
 var attacking = false
+var attack_time = 1
 
 signal LIFE_changed
 signal game_over
@@ -23,8 +24,9 @@ func handleInput():
 func _input(_event):
 	if Input.is_action_just_pressed("click") and can_attack:
 		get_node("Magicspawn").shoot()
-		animation_player.play("cd_animation")
-		await get_tree().create_timer(1).timeout
+		can_attack = false
+    animation_player.play("cd_animation")
+		await get_tree().create_timer(attack_time).timeout
 		can_attack = true
 	else:
 		can_attack = false

@@ -70,9 +70,8 @@ libraries = {
 
 [node name="Control" type="Control" parent="."]
 anchors_preset = 0
-offset_top = -650.0
 offset_right = 40.0
-offset_bottom = -610.0
+offset_bottom = 40.0
 
 [node name="Special thanks" type="Label" parent="Control"]
 layout_mode = 1

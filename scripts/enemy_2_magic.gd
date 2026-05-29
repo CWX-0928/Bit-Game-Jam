@@ -2,11 +2,15 @@ extends Area2D
 
 var direction = Vector2.ZERO
 @export var speed: float = 180
-@export var damage: int = 10
+var damage = 15
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+func _ready() -> void:
+	animation_player.play("magic")
+	rotation = direction.angle()
 
 func _process(delta: float) -> void:
-	rotation = direction.angle()
 	global_position += direction*speed*delta 
 
 func _on_timer_timeout() -> void:

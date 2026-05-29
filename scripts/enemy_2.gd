@@ -1,13 +1,16 @@
 extends CharacterBody2D
 
 @export var projectile_scene : PackedScene
-var player
-#@onready var animations: AnimationPlayer = $animations
+
+@onready var player : CharacterBody2D =  get_tree().get_first_node_in_group("player")
+@onready var animations: AnimationPlayer = $animations
+@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var shoot_place: Node2D = $shoot_place
 
 var direction : String = "left"
 
 @export var speed = 150
-@export var damage = 10
+@export var damage = 5
 @export var health = 10
 @export var safe_distance: float = 20.0
 
@@ -40,45 +43,38 @@ func calculate_direction():
 			direction = "right"
 		else:
 			direction = "left"
-	else:
-		if dir.y > 0:
-			direction = "down"
-		else:
-			direction = "up"
 
 # Controls animations
-#func play_animation():
-	#match direction:
-		#"left":
-			#animations.play()
-		#"right":
-			#animations.play()
-		#"up":
-			#animations.play()
-		#"down":
-			#animations.play()
+func play_animation():
+	animations.play('walking')
+	match direction:
+		"left":
+			sprite_2d.flip_h = true
+			shoot_place.position = Vector2(-8,-9)
+		"right":
+			sprite_2d.flip_h = false
+			shoot_place.position = Vector2(8,-9)
+
 
 # Shoot Damage player func
 func shoot():
 	var projectile = projectile_scene.instantiate()
-	projectile.global_position = self.global_position
+	projectile.global_position = shoot_place.global_position
 	projectile.direction = (player.global_position - projectile.global_position).normalized()
 	projectile.speed = speed *1.5
-	projectile.damage = damage
+
 	get_tree().current_scene.add_child(projectile)
 
 func _on_damage_area_body_entered(body: Node2D) -> void:
-
 	if body.is_in_group("player"): 
 		body.take_damage(damage)
 
 func on_hit(health_damaged):
 	health -= health_damaged
-	if health<=0:
-		GameState.add_score(10)
-		queue_free()
-
+	if health <= 0 :
+		animations.play("die")
 
 # Repeat shooting process
 func _on_shoot_timer_timeout() -> void:
 	shoot()
+	animations.play("channel")

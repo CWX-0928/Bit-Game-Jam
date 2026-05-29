@@ -5,6 +5,7 @@ extends Node2D
 
 
 var SCORE = 0
+var magic_damage = 5
 
 func _ready() -> void:
 	pass

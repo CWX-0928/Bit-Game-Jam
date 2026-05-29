@@ -2,7 +2,8 @@ extends CharacterBody2D
 
 
 var player
-#@onready var animations: AnimationPlayer = $animations
+@onready var animations: AnimationPlayer = $animations
+
 var direction : String = "left"
 @export var speed = 150
 @export var damage = 10
@@ -37,36 +38,29 @@ func calculate_direction():
 			direction = "right"
 		else:
 			direction = "left"
-	else:
-		if dir.y > 0:
-			direction = "down"
-		else:
-			direction = "up"
-
 # Controls animations
-#func play_animation():
-	#match direction:
-		#"left":
-			#animations.play()
-		#"right":
-			#animations.play()
-		#"up":
-			#animations.play()
-		#"down":
-			#animations.play()
+func play_animation():
+	match direction:
+		"left":
+			animations.play("move_left")
+		"right":
+			animations.play("move_right")
 
 # Basic Damage player func
 func _on_damage_area_body_entered(body: Node2D) -> void:
 
 	if body.is_in_group("player"): 
 		body.take_damage(damage)
+		animations.play("attack_" + direction)
 	#take_damage() function will changed based on the real function name in player script
 
 
 # Basic Hurt func
 func on_hit(health_damaged):
 	health -= health_damaged
-	print("Enemy ded")
-	if health<=0:
-		GameState.add_score(5)
-		queue_free()
+	if health <= 0:
+		animations.play("die" + direction)
+	else :
+		self_modulate = Color.RED
+		await get_tree().create_timer(0.2).timeout
+		self_modulate = Color.WHITE
