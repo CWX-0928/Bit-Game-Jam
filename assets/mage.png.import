@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccg3pdg7bxg33"
-path="res://.godot/imported/temoprary_magic_effect.png-1fbbf2a7507321a056d62cb766fd2a4e.ctex"
+uid="uid://cf2o7a07uu7nv"
+path="res://.godot/imported/mage.png-cdc7a45788bcd6307a3df9aac12e86d1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/temoprary_magic_effect.png"
-dest_files=["res://.godot/imported/temoprary_magic_effect.png-1fbbf2a7507321a056d62cb766fd2a4e.ctex"]
+source_file="res://assets/mage.png"
+dest_files=["res://.godot/imported/mage.png-cdc7a45788bcd6307a3df9aac12e86d1.ctex"]
 
 [params]
 
