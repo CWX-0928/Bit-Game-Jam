@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://csn812634gbkb"]
+[gd_scene load_steps=6 format=3 uid="uid://csn812634gbkb"]
 
+[ext_resource type="Script" path="res://cd.gd" id="1_m7tu5"]
 [ext_resource type="Texture2D" uid="uid://bhpk32u6k4ly" path="res://asset/Fireball_cd.png" id="1_o14fb"]
 
 [sub_resource type="Animation" id="Animation_1ojv0"]
@@ -19,7 +20,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_ugjfl"]
 resource_name = "cd_progress"
-length = 10.0
 step = 1.0
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -28,7 +28,7 @@ tracks/0/path = NodePath("TextureProgressBar:value")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 10),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 100.0]
@@ -41,10 +41,10 @@ _data = {
 }
 
 [node name="cd" type="Node2D"]
+script = ExtResource("1_m7tu5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.431373)
-position = Vector2(20, 20)
 scale = Vector2(0.625, 0.625)
 texture = ExtResource("1_o14fb")
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dwruh0m8pcyjt"]
+[gd_scene load_steps=20 format=3 uid="uid://dwruh0m8pcyjt"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_ec61e"]
 [ext_resource type="Script" path="res://player.gd" id="1_wwvca"]
@@ -8,10 +8,50 @@
 [ext_resource type="Script" path="res://ui.gd" id="4_4yy07"]
 [ext_resource type="Script" path="res://magicspawn.gd" id="5_6utcg"]
 [ext_resource type="Texture2D" uid="uid://d4lg7ng8hc5hg" path="res://wizards_player.png" id="6_nhxk8"]
+[ext_resource type="Texture2D" uid="uid://bhpk32u6k4ly" path="res://asset/Fireball_cd.png" id="6_xvvqs"]
 [ext_resource type="Script" path="res://score.gd" id="7_5gfvt"]
 [ext_resource type="PackedScene" uid="uid://m2ytwdgpvx6c" path="res://upgrade_option.tscn" id="8_3bo6s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w2j11"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_eq655"]
+load_path = "res://.godot/imported/Fireball_cd.png-76385064d7e11bbbdbc09a98f8836b75.ctex"
+
+[sub_resource type="Animation" id="Animation_kx7i1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureProgressBar:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_tpo1n"]
+resource_name = "cd_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureProgressBar:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 100.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lp7gw"]
+_data = {
+"RESET": SubResource("Animation_kx7i1"),
+"cd_animation": SubResource("Animation_tpo1n")
+}
 
 [sub_resource type="SystemFont" id="SystemFont_n3sp3"]
 font_names = PackedStringArray("Algerian")
@@ -95,6 +135,27 @@ script = ExtResource("5_6utcg")
 [node name="Marker2D" type="Marker2D" parent="Player/Magicspawn"]
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="cd" type="Node2D" parent="Player"]
+position = Vector2(0, 250)
+
+[node name="fireball_cd" type="Sprite2D" parent="Player/cd"]
+modulate = Color(1, 1, 1, 0.482353)
+texture = SubResource("CompressedTexture2D_eq655")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Player/cd"]
+custom_minimum_size = Vector2(-20, 0)
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+fill_mode = 3
+texture_progress = ExtResource("6_xvvqs")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player/cd"]
+libraries = {
+"": SubResource("AnimationLibrary_lp7gw")
+}
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
