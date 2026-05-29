@@ -84,7 +84,7 @@ script = ExtResource("3_3vvtk")
 shape = SubResource("RectangleShape2D_w2j11")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("6_nhxk8")
 
 [node name="Magicspawn" type="Sprite2D" parent="Player"]
