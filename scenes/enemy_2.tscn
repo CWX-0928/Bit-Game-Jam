@@ -82,6 +82,7 @@ _data = {
 
 [node name="enemy_2" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_coojc")
+projectile_scene = ExtResource("2_n7n73")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.695078, 0.0843782, 0.207665, 1)

@@ -1,4 +1,8 @@
-extends Node2D
+extends Area2D
+
+var direction = Vector2.ZERO
+@export var speed: float = 180
+@export var damage: int = 10
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
@@ -20,4 +24,5 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		body.take_damage(damage)
 		queue_free()
-	#take_damage() function will changed based on the real function name in player script
+	else:
+		return
